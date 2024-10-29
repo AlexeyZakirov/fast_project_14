@@ -43,8 +43,20 @@ tasks.withType(Test) {
     }
 }
 
-task simple_test(type: Test) {
+task header_test(type: Test) {
     useJUnitPlatform {
-        includeTags("simple")
+        includeTags("header")
+    }
+}
+
+task giftCard_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("giftCard")
+    }
+}
+
+task search_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("search")
     }
 }

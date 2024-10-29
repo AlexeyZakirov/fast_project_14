@@ -6,12 +6,12 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.GiftCardPage;
 import pages.MainPage;
-@Tag("simple")
+
 public class BorkTests extends TestBase {
     MainPage mainPage = new MainPage();
     GiftCardPage giftCardPage = new GiftCardPage();
 
-
+    @Tag("header")
     @ValueSource(strings = {
             "Новинки", "Идеи подарков", "Кухня", "Дом", "Красота и здоровье",
             "Outdoor", "Bork home", "Voyage", "Interior"
@@ -21,7 +21,7 @@ public class BorkTests extends TestBase {
         mainPage.openMainPage()
                 .checkHeaderItem(menuItem);
     }
-
+    @Tag("giftCard")
     @EnumSource(GiftCardWithFixPrice.class)
     @ParameterizedTest(name = "У подарочной карты с фиксированной ценой {0} отображается соответствующая картинка")
     public void giftCardWithFixPriceShouldHaveOwnPicture(GiftCardWithFixPrice giftCard) {
@@ -31,7 +31,7 @@ public class BorkTests extends TestBase {
                 .checkImageGiftCard(giftCard.getGiftCardImage());
     }
 
-
+    @Tag("giftCard")
     @ValueSource(strings = {
             "3000", "500000"
     })
@@ -42,7 +42,7 @@ public class BorkTests extends TestBase {
         giftCardPage.setPriceGiftCard(price)
                 .checkBuyButtonIsEnabled();
     }
-
+    @Tag("giftCard")
     @CsvSource(value = {
             "2999,Сумма должна быть больше 3 000",
             "500001,Сумма должна быть меньше 500 000"
@@ -55,7 +55,7 @@ public class BorkTests extends TestBase {
                 .checkErrorMessagePrice(textError)
                 .checkBuyButtonIsDisabled();
     }
-
+    @Tag("search")
     @CsvSource(value = {
             "Чайники,Чайники",
             "Посуда,Посуда и сервировка"
