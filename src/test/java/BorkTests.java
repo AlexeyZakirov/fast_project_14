@@ -1,5 +1,4 @@
 import data.GiftCardWithFixPrice;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -17,16 +16,14 @@ public class BorkTests extends TestBase {
             "Новинки", "Идеи подарков", "Кухня", "Дом", "Красота и здоровье",
             "Outdoor", "Bork home", "Voyage", "Interior"
     })
-    @DisplayName("Хедер содержит пункт {0}")
-    @ParameterizedTest
+    @ParameterizedTest(name = "Хедер содержит пункт {0}")
     public void headerShouldHaveAllItemsTest(String menuItem) {
         mainPage.openMainPage()
                 .checkHeaderItem(menuItem);
     }
 
     @EnumSource(GiftCardWithFixPrice.class)
-    @DisplayName("У подарочной карты с фиксированной ценой {0} отображается соответствующая картинка")
-    @ParameterizedTest
+    @ParameterizedTest(name = "У подарочной карты с фиксированной ценой {0} отображается соответствующая картинка")
     public void giftCardWithFixPriceShouldHaveOwnPicture(GiftCardWithFixPrice giftCard) {
         mainPage.openMainPage()
                 .openCategoryFromHeaderItem("Идеи подарков", "Подарочные карты");
@@ -38,8 +35,7 @@ public class BorkTests extends TestBase {
     @ValueSource(strings = {
             "3000", "500000"
     })
-    @DisplayName("Кнопка покупки кликабельна при вводе допустимого граничного значения {0} в поле суммы подарочной карты")
-    @ParameterizedTest
+    @ParameterizedTest(name = "Кнопка покупки кликабельна при вводе допустимого граничного значения {0} в поле суммы подарочной карты")
     public void positiveBoundaryValuesOfGiftPriceTest(String price){
         mainPage.openMainPage()
                 .openCategoryFromHeaderItem("Идеи подарков", "Подарочные карты");
@@ -51,8 +47,7 @@ public class BorkTests extends TestBase {
             "2999,Сумма должна быть больше 3 000",
             "500001,Сумма должна быть меньше 500 000"
     })
-    @DisplayName("Появляется ошибка \"{1}\" при вводе недопустимного значения {0} в поле суммы подарочной карты")
-    @ParameterizedTest
+    @ParameterizedTest(name = "Появляется ошибка \"{1}\" при вводе недопустимного значения {0} в поле суммы подарочной карты")
     public void negativeBoundaryValuesOfGiftPriceTest(String price, String textError) {
         mainPage.openMainPage()
                 .openCategoryFromHeaderItem("Идеи подарков", "Подарочные карты");
@@ -65,8 +60,7 @@ public class BorkTests extends TestBase {
             "Чайники,Чайники",
             "Посуда,Посуда и сервировка"
     })
-    @DisplayName("Появляется категория \"{1}\" при вводе в поиск слова {0}")
-    @ParameterizedTest
+    @ParameterizedTest(name = "Появляется категория \"{1}\" при вводе в поиск слова {0}")
     public void searchCategoryUsingKeyWord(String searchText, String category){
         mainPage.openMainPage()
                 .setSearchText(searchText)
