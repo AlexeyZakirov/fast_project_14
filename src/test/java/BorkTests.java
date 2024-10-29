@@ -1,12 +1,13 @@
 import data.GiftCardWithFixPrice;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.GiftCardPage;
 import pages.MainPage;
-
+@Tag("simple")
 public class BorkTests extends TestBase {
     MainPage mainPage = new MainPage();
     GiftCardPage giftCardPage = new GiftCardPage();
