@@ -16,7 +16,7 @@ public class Header {
     }
 
     public void openCategoryFromHeaderItem(String menuItem, String category){
-        sleep(3000);
+        sleep(4000);
         mainHeader.$(byText(menuItem)).hover();
         sleep(1000);
         dropdownMenuList.$(byText(category)).click();
