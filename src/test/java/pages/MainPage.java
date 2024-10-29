@@ -13,7 +13,7 @@ public class MainPage {
 
     @Step("Открыть главную страницу")
     public MainPage openMainPage(){
-        open("/");
+        open("");
         return this;
     }
     @Step("Проверить, что хэдер содержит пункт {0}")
