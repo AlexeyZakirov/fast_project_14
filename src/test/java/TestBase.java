@@ -15,7 +15,7 @@ public class TestBase {
     public static void setUp(){
         Configuration.browser = System.getProperty("browser","chrome");
         Configuration.browserVersion = System.getProperty("version");
-        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.baseUrl = "https://www.bork.ru/";
         Configuration.pageLoadStrategy = "eager";
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -24,8 +24,10 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = String.format("https://%s@%s/wd/hub",
-                System.getProperty("auth"), System.getProperty("remoteUrl"));
+        if (System.getProperty("remoteUrl") != null) {
+            Configuration.remote = String.format("https://%s@%s/wd/hub",
+                    System.getProperty("auth"), System.getProperty("remoteUrl"));
+        }
     }
 
     @BeforeEach
