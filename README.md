@@ -1,6 +1,8 @@
 
 # Проект по автоматизации тестирования для компании [BORK](https://www.bork.ru/)
 
+<a href="https://www.bork.ru/"><img src="media\screenshots\bork.jpg" width="850" alt="Bork"/></a>
+
 ---
 ##  **Содержание:**
 
